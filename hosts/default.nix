@@ -4,7 +4,7 @@ let
   hostname = "nixconvert";
   addr = "${username}@${hostname}";
   system = "x86_64-linux";
-  systemStateVersion = "24.11";
+  systemStateVersion = "25.11";
 in {
   flake.nixosConfigurations.${hostname} = inputs.nixpkgs.lib.nixosSystem {
     specialArgs = { inherit hostname username; };
@@ -44,9 +44,19 @@ in {
       {
         home.username = username;
         home.homeDirectory = "/home/${username}";
+                # This value determines the home Manager release that your
+        # configuration is compatible with. This helps avoid breakage
+        # when a new home Manager release introduces backwards
+        # incompatible changes.
+        #
+        # You can update home Manager without changing this value. See
+        # the home Manager release notes for a list of state version
+        # changes in each release.
+        home.stateVersion = "25.11";
       }
   
-      base
+      git
+      nvim
   
     ];
   };

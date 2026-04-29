@@ -2,6 +2,8 @@
 
   programs.tmux = {
     enable = true;
+    # extraConfig = builtins.readFile "/home/michael/.dotfiles/.tmux.conf";
   };
 
-}; }
+};
+}
