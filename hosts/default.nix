@@ -11,7 +11,7 @@ in {
     modules = with self.modules.nixos; [
       ./_nixos/hardware-configuration.nix
 
-      base
+      core
       openssh
       tmux
       users
@@ -55,6 +55,8 @@ in {
         home.stateVersion = "25.11";
       }
   
+      openCode
+      core
       git
       nvim
   
