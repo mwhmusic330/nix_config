@@ -29,6 +29,7 @@
         bashrcExtra = builtins.readFile "${dotfiles_dir}/home/.bashrc"; 
         shellAliases = {
           ghgrab = "nix run github:abhixdd/ghgrab";
+          venv = ''if [[ -n $VIRTUAL_ENV_PROMPT ]]; then deactivate; elif [ -d "./.venv" ]; then source ./.venv/bin/activate; elif [ -d "./venv" ]; then source ./venv/bin/activate; else echo "no environment found"; fi'';
           aa = "sessionizer";
           hm = "cd ${home_dir}/nix_config/ && home-manager switch --impure --flake .#${username}@${hostname}";
         };
