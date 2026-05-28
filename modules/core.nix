@@ -43,6 +43,8 @@
       stylua
       uv
       fzf
+      nodejs
+      unzip
       (python313.withPackages(ps: with ps; [
         black
         flask
